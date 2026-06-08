@@ -1,0 +1,105 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--studio-space-md);
+}
+
+.heading {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--studio-text-muted);
+  padding: 0 var(--studio-space-sm);
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--studio-space-xs);
+}
+
+.groupLabel {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--studio-text-secondary);
+  padding: var(--studio-space-xs) var(--studio-space-sm);
+}
+
+.tokenRow {
+  display: flex;
+  align-items: center;
+  gap: var(--studio-space-sm);
+  padding: var(--studio-space-xs) var(--studio-space-sm);
+  border-radius: var(--studio-radius-sm);
+  flex-wrap: wrap;
+  transition: background var(--studio-transition-fast);
+}
+
+.tokenRow:hover {
+  background: var(--studio-surface-hover);
+}
+
+.swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--studio-radius-sm);
+  border: 2px solid var(--studio-border);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: border-color var(--studio-transition-fast);
+}
+
+.swatch:hover {
+  border-color: var(--studio-text-muted);
+}
+
+.tokenInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex: 1;
+  min-width: 0;
+}
+
+.tokenName {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--studio-text);
+}
+
+.tokenValue {
+  font-size: 11px;
+  font-family: var(--studio-font-mono);
+  color: var(--studio-text-muted);
+}
+
+.pickerContainer {
+  width: 100%;
+  padding: var(--studio-space-sm) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--studio-space-sm);
+}
+
+.pickerContainer :global(.react-colorful) {
+  width: 100%;
+  height: 160px;
+  border-radius: var(--studio-radius-md);
+}
+
+.hexInput {
+  width: 100%;
+  padding: var(--studio-space-xs) var(--studio-space-sm);
+  background: var(--studio-surface);
+  border: 1px solid var(--studio-border);
+  border-radius: var(--studio-radius-sm);
+  font-family: var(--studio-font-mono);
+  font-size: 12px;
+  color: var(--studio-text);
+}
+
+.hexInput:focus {
+  border-color: var(--studio-accent);
+  outline: none;
+}

@@ -1,0 +1,48 @@
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 8px;
+  border-radius: var(--studio-radius-sm);
+  font-size: 11px;
+  font-weight: 500;
+  user-select: none;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.disconnected {
+  color: var(--studio-text-muted);
+}
+
+.disconnected .dot {
+  background: var(--studio-text-muted);
+}
+
+.bridge {
+  color: var(--studio-success);
+}
+
+.bridge .dot {
+  background: var(--studio-success);
+}
+
+.sameorigin {
+  color: var(--studio-accent);
+}
+
+.sameorigin .dot {
+  background: var(--studio-accent);
+}
+
+.failed {
+  color: var(--studio-error);
+}
+
+.failed .dot {
+  background: var(--studio-error);
+}

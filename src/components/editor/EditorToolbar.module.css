@@ -1,0 +1,115 @@
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--studio-space-sm);
+  padding: var(--studio-space-sm) var(--studio-space-md);
+  border-bottom: 1px solid var(--studio-border-subtle);
+  min-height: 44px;
+}
+
+.deviceSelect {
+  padding: var(--studio-space-xs) var(--studio-space-sm);
+  background: var(--studio-surface);
+  border: 1px solid var(--studio-border);
+  border-radius: var(--studio-radius-sm);
+  color: var(--studio-text);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.deviceSelect:focus {
+  border-color: var(--studio-accent);
+  outline: none;
+}
+
+.variantToggle {
+  display: flex;
+  align-items: center;
+  gap: var(--studio-space-xs);
+  padding: var(--studio-space-xs) var(--studio-space-sm);
+  background: var(--studio-surface);
+  border: 1px solid var(--studio-border);
+  border-radius: var(--studio-radius-sm);
+  color: var(--studio-text);
+  font-size: 12px;
+  cursor: pointer;
+  transition: background var(--studio-transition-fast);
+}
+
+.variantToggle:hover {
+  background: var(--studio-surface-hover);
+}
+
+.variantIcon {
+  font-size: 14px;
+}
+
+.variantLabel {
+  font-weight: 500;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.historyButtons {
+  display: flex;
+  gap: 2px;
+}
+
+.iconButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--studio-radius-sm);
+  color: var(--studio-text-secondary);
+  font-size: 14px;
+  transition:
+    background var(--studio-transition-fast),
+    color var(--studio-transition-fast);
+}
+
+.iconButton:hover:not(:disabled) {
+  background: var(--studio-surface-hover);
+  color: var(--studio-text);
+}
+
+.iconButton:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.toolbarButton {
+  padding: var(--studio-space-xs) var(--studio-space-sm);
+  background: var(--studio-surface);
+  border: 1px solid var(--studio-border);
+  border-radius: var(--studio-radius-sm);
+  color: var(--studio-text-secondary);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background var(--studio-transition-fast),
+    color var(--studio-transition-fast);
+}
+
+.toolbarButton:hover {
+  background: var(--studio-surface-hover);
+  color: var(--studio-text);
+}
+
+.saveButton {
+  padding: var(--studio-space-xs) var(--studio-space-md);
+  background: var(--studio-accent);
+  color: white;
+  border-radius: var(--studio-radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+  transition: background var(--studio-transition-fast);
+}
+
+.saveButton:hover {
+  background: var(--studio-accent-hover);
+}

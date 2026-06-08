@@ -1,0 +1,25 @@
+#!/bin/sh
+set -e
+
+echo "Running pre-commit checks..."
+
+# Format check
+npx prettier --check .
+
+# Lint
+npx eslint .
+
+# Type check
+npx tsc -b --noEmit
+
+# Unit tests
+npx vitest run
+
+# gitleaks
+if command -v gitleaks >/dev/null 2>&1; then
+  gitleaks detect --source . --no-git
+else
+  echo "Warning: gitleaks not installed, skipping secret scan"
+fi
+
+echo "All pre-commit checks passed!"

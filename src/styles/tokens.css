@@ -1,0 +1,40 @@
+:root {
+  /* Studio's own design tokens — separate from editable theme tokens */
+  --studio-bg: #0f0f12;
+  --studio-surface: #1a1a22;
+  --studio-surface-raised: #22222e;
+  --studio-surface-hover: #2a2a38;
+  --studio-border: #2e2e3e;
+  --studio-border-subtle: #232334;
+
+  --studio-text: #e8e8f0;
+  --studio-text-secondary: #9898b0;
+  --studio-text-muted: #64648a;
+
+  --studio-accent: #6366f1;
+  --studio-accent-hover: #818cf8;
+  --studio-accent-subtle: rgba(99, 102, 241, 0.12);
+
+  --studio-success: #22c55e;
+  --studio-warning: #f59e0b;
+  --studio-error: #ef4444;
+
+  --studio-radius-sm: 4px;
+  --studio-radius-md: 8px;
+  --studio-radius-lg: 12px;
+
+  --studio-space-xs: 4px;
+  --studio-space-sm: 8px;
+  --studio-space-md: 12px;
+  --studio-space-lg: 16px;
+  --studio-space-xl: 24px;
+  --studio-space-2xl: 32px;
+
+  --studio-font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+  --studio-font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --studio-transition-fast: 120ms ease;
+  --studio-transition-normal: 200ms ease;
+
+  --studio-editor-width: 340px;
+}

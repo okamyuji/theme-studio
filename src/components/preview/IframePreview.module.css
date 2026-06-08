@@ -1,0 +1,75 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.urlBar {
+  display: flex;
+  align-items: center;
+  gap: var(--studio-space-sm);
+  padding: var(--studio-space-xs);
+}
+
+.urlForm {
+  display: flex;
+  flex: 1;
+  gap: var(--studio-space-xs);
+}
+
+.urlInput {
+  flex: 1;
+  padding: var(--studio-space-xs) var(--studio-space-sm);
+  background: var(--studio-bg);
+  border: 1px solid var(--studio-border);
+  border-radius: var(--studio-radius-sm);
+  color: var(--studio-text);
+  font-size: 12px;
+  font-family: var(--studio-font-mono);
+}
+
+.urlInput:focus {
+  border-color: var(--studio-accent);
+  outline: none;
+}
+
+.connectButton {
+  padding: var(--studio-space-xs) var(--studio-space-md);
+  background: var(--studio-surface-raised);
+  border: 1px solid var(--studio-border);
+  border-radius: var(--studio-radius-sm);
+  color: var(--studio-text);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--studio-transition-fast);
+}
+
+.connectButton:hover {
+  background: var(--studio-surface-hover);
+}
+
+.iframe {
+  flex: 1;
+  width: 100%;
+  border: none;
+  border-radius: 0 0 var(--studio-radius-md) var(--studio-radius-md);
+  background: white;
+}
+
+.placeholder {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--studio-bg);
+  border-radius: 0 0 var(--studio-radius-md) var(--studio-radius-md);
+}
+
+.placeholderText {
+  color: var(--studio-text-muted);
+  font-size: 13px;
+  text-align: center;
+  max-width: 240px;
+}

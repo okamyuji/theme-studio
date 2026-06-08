@@ -1,0 +1,154 @@
+.frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--studio-space-sm);
+  transform-origin: center center;
+}
+
+.bezel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 44px;
+  background: #1c1c1e;
+  box-shadow:
+    0 0 0 2px #3a3a3c,
+    0 20px 60px rgba(0, 0, 0, 0.4);
+  padding: 12px;
+}
+
+.ios {
+  border-radius: 44px;
+}
+
+.android {
+  border-radius: 32px;
+}
+
+.screen {
+  position: relative;
+  border-radius: 32px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.ios .screen {
+  border-radius: 38px;
+}
+
+.android .screen {
+  border-radius: 24px;
+}
+
+.dynamicIsland {
+  position: absolute;
+  top: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 34px;
+  background: #000;
+  border-radius: 20px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.notch {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 24px;
+  background: #1c1c1e;
+  border-radius: 0 0 16px 16px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.punchHole {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  background: #000;
+  border-radius: 50%;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.tablet {
+  border-radius: 24px;
+}
+
+.desktopFrame {
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #1c1c1e;
+  box-shadow:
+    0 0 0 2px #3a3a3c,
+    0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.desktopTitlebar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 36px;
+  padding: 0 12px;
+  background: #2c2c2e;
+}
+
+.desktopDots {
+  display: flex;
+  gap: 6px;
+}
+
+.dotRed {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff5f57;
+}
+
+.dotYellow {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #febc2e;
+}
+
+.dotGreen {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #28c840;
+}
+
+.desktopAddressBar {
+  flex: 1;
+  padding: 4px 12px;
+  background: #1c1c1e;
+  border-radius: 6px;
+  font-size: 11px;
+  color: #999;
+  text-align: center;
+}
+
+.desktopScreen {
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.deviceLabel {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--studio-text-muted);
+}

@@ -1,0 +1,15 @@
+.panel {
+  width: var(--studio-editor-width);
+  min-width: var(--studio-editor-width);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--studio-surface);
+  border-right: 1px solid var(--studio-border-subtle);
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--studio-space-md);
+}

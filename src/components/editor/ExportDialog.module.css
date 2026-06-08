@@ -1,0 +1,158 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.dialog {
+  background: var(--studio-surface-raised);
+  border: 1px solid var(--studio-border);
+  border-radius: var(--studio-radius-lg);
+  width: 480px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  color: var(--studio-text);
+  padding: 0;
+}
+
+.dialog::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.dialogHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--studio-space-lg) var(--studio-space-lg) var(--studio-space-sm);
+}
+
+.dialogTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--studio-text);
+}
+
+.closeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--studio-radius-sm);
+  color: var(--studio-text-secondary);
+  font-size: 16px;
+  cursor: pointer;
+  transition: background var(--studio-transition-fast);
+}
+
+.closeButton:hover {
+  background: var(--studio-surface-hover);
+}
+
+.tabList {
+  display: flex;
+  gap: 0;
+  padding: 0 var(--studio-space-lg);
+  border-bottom: 1px solid var(--studio-border-subtle);
+}
+
+.tab {
+  padding: var(--studio-space-sm) var(--studio-space-md);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--studio-text-secondary);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition:
+    color var(--studio-transition-fast),
+    border-color var(--studio-transition-fast);
+}
+
+.tab:hover {
+  color: var(--studio-text);
+}
+
+.tabActive {
+  composes: tab;
+  color: var(--studio-accent);
+  border-bottom-color: var(--studio-accent);
+}
+
+.previewArea {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--studio-space-md) var(--studio-space-lg);
+}
+
+.codePreview {
+  width: 100%;
+  min-height: 200px;
+  max-height: 320px;
+  padding: var(--studio-space-sm);
+  background: var(--studio-bg);
+  border: 1px solid var(--studio-border);
+  border-radius: var(--studio-radius-sm);
+  font-family: var(--studio-font-mono);
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--studio-text);
+  resize: vertical;
+}
+
+.codePreview:focus {
+  border-color: var(--studio-accent);
+  outline: none;
+}
+
+.dialogFooter {
+  display: flex;
+  gap: var(--studio-space-sm);
+  justify-content: flex-end;
+  padding: var(--studio-space-sm) var(--studio-space-lg) var(--studio-space-lg);
+  border-top: 1px solid var(--studio-border-subtle);
+}
+
+.actionButton {
+  padding: var(--studio-space-xs) var(--studio-space-md);
+  background: var(--studio-accent);
+  color: white;
+  border-radius: var(--studio-radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--studio-transition-fast);
+}
+
+.actionButton:hover {
+  background: var(--studio-accent-hover);
+}
+
+.secondaryButton {
+  padding: var(--studio-space-xs) var(--studio-space-md);
+  background: var(--studio-surface);
+  border: 1px solid var(--studio-border);
+  color: var(--studio-text);
+  border-radius: var(--studio-radius-sm);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background var(--studio-transition-fast),
+    border-color var(--studio-transition-fast);
+}
+
+.secondaryButton:hover {
+  background: var(--studio-surface-hover);
+}
+
+.copiedFeedback {
+  font-size: 12px;
+  color: var(--studio-success);
+  font-weight: 500;
+  padding: var(--studio-space-xs) 0;
+}
