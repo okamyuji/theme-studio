@@ -15,19 +15,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Vite+
-        run: curl -fsSL https://vite.plus | bash
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
 
-      - run: vp install
+      - run: npm ci
 
       - name: Check (format + lint + typecheck)
-        run: vp check
+        run: npx vp check
 
       - name: Unit tests
-        run: vp test --coverage
+        run: npx vp test --coverage
 
       - name: Build
-        run: vp build
+        run: npx vp build
 
       - name: Install Playwright
         run: npx playwright install --with-deps chromium
