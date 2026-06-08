@@ -2,9 +2,11 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Theme Management', () => {
   test.beforeEach(async ({ page }) => {
+    // Clear localStorage before navigating so the app starts fresh
     await page.goto('/');
-    // Clear localStorage to start fresh
     await page.evaluate(() => localStorage.clear());
+    await page.reload();
+    await page.waitForLoadState('networkidle');
   });
 
   test('opens themes dialog', async ({ page }) => {

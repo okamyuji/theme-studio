@@ -8,7 +8,7 @@ test.describe('Typography Editing', () => {
   test('opens typography section and shows sliders', async ({ page }) => {
     // Click on Typography collapsible section header
     const typographyHeader = page.locator('[data-testid="section-Typography"]');
-    await typographyHeader.locator('button').click();
+    await typographyHeader.locator('button[aria-expanded]').click();
 
     // Font size sliders should be visible
     const fontSizeSlider = page.locator(
@@ -20,7 +20,7 @@ test.describe('Typography Editing', () => {
   test('changes font size via slider', async ({ page }) => {
     // Open Typography section
     const typographyHeader = page.locator('[data-testid="section-Typography"]');
-    await typographyHeader.locator('button').click();
+    await typographyHeader.locator('button[aria-expanded]').click();
 
     const slider = page.locator('[data-testid="slider---font-size-base"]');
     await expect(slider).toBeVisible();
@@ -35,7 +35,7 @@ test.describe('Typography Editing', () => {
   test('changes font family via selector', async ({ page }) => {
     // Open Typography section
     const typographyHeader = page.locator('[data-testid="section-Typography"]');
-    await typographyHeader.locator('button').click();
+    await typographyHeader.locator('button[aria-expanded]').click();
 
     const select = page.locator('[data-testid="font-family-select"]');
     await expect(select).toBeVisible();
@@ -46,7 +46,7 @@ test.describe('Typography Editing', () => {
   test('line height sliders are available', async ({ page }) => {
     // Open Typography section
     const typographyHeader = page.locator('[data-testid="section-Typography"]');
-    await typographyHeader.locator('button').click();
+    await typographyHeader.locator('button[aria-expanded]').click();
 
     const slider = page.locator('[data-testid="slider---line-height-normal"]');
     await expect(slider).toBeVisible();
