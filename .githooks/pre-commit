@@ -3,19 +3,9 @@ set -e
 
 echo "Running pre-commit checks..."
 
-# Format check
-npx prettier --check .
+vp check
+vp test
 
-# Lint
-npx eslint .
-
-# Type check
-npx tsc -b --noEmit
-
-# Unit tests
-npx vitest run
-
-# gitleaks
 if command -v gitleaks >/dev/null 2>&1; then
   gitleaks detect --source . --no-git
 else

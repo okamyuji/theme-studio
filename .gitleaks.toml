@@ -1,6 +1,4 @@
 title = "theme-studio gitleaks config"
 
 [allowlist]
-  paths = [
-    '''.env''',
-  ]
+paths = ['''.env''']
