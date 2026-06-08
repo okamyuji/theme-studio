@@ -11,22 +11,22 @@ test.describe('Undo/Redo', () => {
     await swatch.click();
 
     const hexInput = page.locator('[data-testid="hex-input---color-primary"]');
+    await expect(hexInput).toBeVisible();
+
+    // Record original color
+    const originalColor = await hexInput.inputValue();
 
     // Change to red
     await hexInput.fill('#FF0000');
     await expect(swatch).toHaveCSS('background-color', 'rgb(255, 0, 0)');
 
-    // Click undo
-    const undoButton = page.locator('[aria-label="Undo"]');
+    // Wait for undo button to become enabled, then click
+    const undoButton = page.locator('button[aria-label="Undo"]');
+    await expect(undoButton).toBeEnabled();
     await undoButton.click();
 
-    // Swatch should revert. Re-open picker to check input.
-    await swatch.click();
-    const restoredInput = page.locator(
-      '[data-testid="hex-input---color-primary"]',
-    );
-    const value = await restoredInput.inputValue();
-    expect(value.toLowerCase()).not.toBe('#ff0000');
+    // Picker is still open — verify hex input reverted
+    await expect(hexInput).toHaveValue(originalColor);
   });
 
   test('redo restores undone change', async ({ page }) => {
@@ -34,23 +34,24 @@ test.describe('Undo/Redo', () => {
     await swatch.click();
 
     const hexInput = page.locator('[data-testid="hex-input---color-primary"]');
+    await expect(hexInput).toBeVisible();
+
     await hexInput.fill('#00FF00');
+    await expect(swatch).toHaveCSS('background-color', 'rgb(0, 255, 0)');
 
     // Undo
-    const undoButton = page.locator('[aria-label="Undo"]');
+    const undoButton = page.locator('button[aria-label="Undo"]');
+    await expect(undoButton).toBeEnabled();
     await undoButton.click();
 
+    await expect(swatch).not.toHaveCSS('background-color', 'rgb(0, 255, 0)');
+
     // Redo
-    const redoButton = page.locator('[aria-label="Redo"]');
+    const redoButton = page.locator('button[aria-label="Redo"]');
+    await expect(redoButton).toBeEnabled();
     await redoButton.click();
 
-    // Re-open picker
-    await swatch.click();
-    const restoredInput = page.locator(
-      '[data-testid="hex-input---color-primary"]',
-    );
-    const value = await restoredInput.inputValue();
-    expect(value.toLowerCase()).toBe('#00ff00');
+    await expect(swatch).toHaveCSS('background-color', 'rgb(0, 255, 0)');
   });
 
   test('keyboard shortcut Ctrl+Z triggers undo', async ({ page }) => {
@@ -58,17 +59,17 @@ test.describe('Undo/Redo', () => {
     await swatch.click();
 
     const hexInput = page.locator('[data-testid="hex-input---color-primary"]');
+    await expect(hexInput).toBeVisible();
+
+    const originalColor = await hexInput.inputValue();
+
     await hexInput.fill('#0000FF');
+    await expect(swatch).toHaveCSS('background-color', 'rgb(0, 0, 255)');
 
     // Use keyboard shortcut
     await page.keyboard.press('Control+z');
 
     // Verify color reverted
-    await swatch.click();
-    const restoredInput = page.locator(
-      '[data-testid="hex-input---color-primary"]',
-    );
-    const value = await restoredInput.inputValue();
-    expect(value.toLowerCase()).not.toBe('#0000ff');
+    await expect(hexInput).toHaveValue(originalColor);
   });
 });

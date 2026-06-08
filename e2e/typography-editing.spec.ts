@@ -28,8 +28,9 @@ test.describe('Typography Editing', () => {
     // Change the slider value
     await slider.fill('1.5');
 
-    // Verify the value display updated
-    await expect(page.locator('text=1.5rem')).toBeVisible();
+    // Verify the value display updated within the Typography section
+    const section = page.locator('[data-testid="section-Typography"]');
+    await expect(section.locator('text=1.5rem').first()).toBeVisible();
   });
 
   test('changes font family via selector', async ({ page }) => {
