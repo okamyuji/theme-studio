@@ -10,23 +10,32 @@ permissions:
   contents: read
 
 jobs:
+  # 共通CI: install → format+lint+typecheck (vp check) → typecheck (tsc) → unit tests (coverage)
   quality:
+    uses: okamyuji/reusable-workflows/.github/workflows/node-ci.yml@v1
+    with:
+      # Node 24 (npm 11)。npm 10ではvitestエイリアス(npm:@voidzero-dev/vite-plus-test@latest)の
+      # dist-tag検証でnpm ciが失敗する（mainが2026-06-21から落ちていた実原因）
+      node-version: '24'
+      lint-command: 'exec -- vp check'
+      test-command: 'run test:coverage'
+
+  # 共通セキュリティスキャン: gitleaks（GITHUB_TOKEN受け渡しは reusable 側に内蔵）
+  security:
+    uses: okamyuji/reusable-workflows/.github/workflows/security-scan.yml@v1
+
+  # 固有ジョブ: ビルド + Playwright E2E（ブラウザインストールが必要なため共通化対象外）
+  e2e:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24
           cache: 'npm'
 
       - run: npm ci
-
-      - name: Check (format + lint + typecheck)
-        run: npx vp check
-
-      - name: Unit tests
-        run: npx vp test --coverage
 
       - name: Build
         run: npx vp build
@@ -36,9 +45,3 @@ jobs:
 
       - name: E2E tests
         run: npx playwright test
-
-      - name: Secret scan
-        uses: gitleaks/gitleaks-action@v2
-        env:
-          GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
