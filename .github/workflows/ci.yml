@@ -14,8 +14,7 @@ jobs:
   quality:
     uses: okamyuji/reusable-workflows/.github/workflows/node-ci.yml@v1
     with:
-      # Node 24 (npm 11)。npm 10ではvitestエイリアス(npm:@voidzero-dev/vite-plus-test@latest)の
-      # dist-tag検証でnpm ciが失敗する（mainが2026-06-21から落ちていた実原因）
+      # Node 24 (npm 11)。package.json の packageManager (npm@11) と揃える
       node-version: '24'
       lint-command: 'exec -- vp check'
       test-command: 'run test:coverage'
