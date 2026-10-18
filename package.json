@@ -41,13 +41,13 @@
     "jsdom": "^29.1.1",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.60.1",
-    "vite": "npm:@voidzero-dev/vite-plus-core@0.3.0",
+    "vite": "npm:@voidzero-dev/vite-plus-core@0.3.3",
     "vitest": "4.1.11",
-    "vite-plus": "0.3.0"
+    "vite-plus": "0.3.3"
   },
   "packageManager": "npm@11.16.0",
   "overrides": {
-    "vite": "npm:@voidzero-dev/vite-plus-core@0.3.0",
+    "vite": "npm:@voidzero-dev/vite-plus-core@0.3.3",
     "vitest": "4.1.11"
   }
 }

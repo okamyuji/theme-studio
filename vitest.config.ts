@@ -7,6 +7,8 @@ export default mergeConfig(
     test: {
       globals: true,
       environment: 'jsdom',
+      // Node 25+ の組み込み localStorage が jsdom の localStorage を隠すため無効化する
+      execArgv: ['--no-experimental-webstorage'],
       setupFiles: ['./src/test/setup.ts'],
       exclude: ['e2e/**', 'node_modules/**'],
       coverage: {
