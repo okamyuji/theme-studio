@@ -14,7 +14,6 @@ jobs:
   quality:
     uses: okamyuji/reusable-workflows/.github/workflows/node-ci.yml@v1
     with:
-      # Node 24 (npm 11)。package.json の packageManager (npm@11) と揃える
       node-version: '24'
       lint-command: 'exec -- vp check'
       test-command: 'run test:coverage'
@@ -29,18 +28,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: pnpm/action-setup@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-          cache: 'npm'
+          cache: pnpm
 
-      - run: npm ci
+      - run: pnpm install --frozen-lockfile
 
       - name: Build
-        run: npx vp build
+        run: pnpm exec vp build
 
       - name: Install Playwright
-        run: npx playwright install --with-deps chromium
+        run: pnpm exec playwright install --with-deps chromium
 
       - name: E2E tests
-        run: npx playwright test
+        run: pnpm exec playwright test

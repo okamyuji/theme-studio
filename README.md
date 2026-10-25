@@ -17,22 +17,22 @@
 ## セットアップ
 
 ```bash
-npm install
-npm run dev         # http://localhost:7777
+pnpm install
+pnpm run dev         # http://localhost:7777
 ```
 
 ## コマンド一覧
 
-| コマンド                | 内容                         |
-| ----------------------- | ---------------------------- |
-| `npm run dev`           | 開発サーバー起動             |
-| `npm run build`         | プロダクションビルド         |
-| `npm run lint`          | ESLintチェック               |
-| `npm run format:check`  | Prettierフォーマットチェック |
-| `npm run typecheck`     | TypeScript型チェック         |
-| `npm test`              | ユニットテスト実行           |
-| `npm run test:coverage` | カバレッジ付きテスト         |
-| `npm run e2e`           | Playwright E2Eテスト         |
+| コマンド                 | 内容                         |
+| ------------------------ | ---------------------------- |
+| `pnpm run dev`           | 開発サーバー起動             |
+| `pnpm run build`         | プロダクションビルド         |
+| `pnpm run lint`          | ESLintチェック               |
+| `pnpm run format:check`  | Prettierフォーマットチェック |
+| `pnpm run typecheck`     | TypeScript型チェック         |
+| `pnpm test`              | ユニットテスト実行           |
+| `pnpm run test:coverage` | カバレッジ付きテスト         |
+| `pnpm run e2e`           | Playwright E2Eテスト         |
 
 ## 品質ゲート
 
