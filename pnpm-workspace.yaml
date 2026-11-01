@@ -1,6 +1,6 @@
 # 公開から3日未満の版を入れない。依存の乗っ取りへの備え。緊急時だけminimumReleaseAgeExcludeにname@versionで1版ずつ足す
 minimumReleaseAge: 4320
 overrides:
-  vite: npm:@voidzero-dev/vite-plus-core@1.3.0
+  vite: npm:@voidzero-dev/vite-plus-core@1.4.0
   vitest: 5.0.5
   'minimatch@>=10.0.0 <11.0.1': ^11.0.3
